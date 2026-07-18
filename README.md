@@ -10,3 +10,4 @@ I am an Entry Level Data Analyst passionate about turning raw data into meaningf
 **📫 How to reach me:**
 *   LinkedIn: [Vu Thi Kim Thoa](https://www.linkedin.com/in/thoavuthikim/)
 *   Email: thoavu.work@gmail.com
+*   My Porfilio: https://thoavuthikim.github.io/
