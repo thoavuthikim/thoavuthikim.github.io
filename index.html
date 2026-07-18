@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio – Vũ Thị Kim Thoa</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:    #1565C0;
+  --blue2:   #1976D2;
+  --blue3:   #42A5F5;
+  --accent:  #0288D1;
+  --teal:    #00ACC1;
+  --bg:      #FFFFFF;
+  --bg2:     #F0F6FF;
+  --bg3:     #E3F0FF;
+  --text:    #0D1B2A;
+  --muted:   #4A6080;
+  --border:  #C8DEFF;
+  --shadow:  rgba(21,101,192,0.10);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; width:100%; z-index:100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid var(--border);
+  padding: 14px 6%;
+  display: flex; justify-content: space-between; align-items: center;
+  box-shadow: 0 2px 16px var(--shadow);
+}
+.nav-logo {
+  font-weight: 900; font-size: 1.05rem;
+  color: var(--blue);
+  letter-spacing: -0.01em;
+}
+.nav-logo span { color: var(--teal); }
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.88rem; font-weight: 700;
+  transition: color 0.2s; letter-spacing: 0.01em;
+}
+.nav-links a:hover { color: var(--blue); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 110px 6% 70px;
+  background: linear-gradient(135deg, #EBF4FF 0%, #FFFFFF 50%, #E0F7FA 100%);
+  position: relative; overflow: hidden;
+}
+.hero-blob {
+  position: absolute; pointer-events: none;
+}
+.blob1 {
+  top: -120px; right: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(21,101,192,0.12) 0%, transparent 70%);
+}
+.blob2 {
+  bottom: -80px; left: -60px;
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, rgba(0,172,193,0.14) 0%, transparent 70%);
+}
+.hero-content { max-width: 680px; position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #E3F2FD;
+  border: 1.5px solid #90CAF9;
+  color: var(--blue2);
+  padding: 7px 18px; border-radius: 100px;
+  font-size: 0.8rem; font-weight: 800;
+  margin-bottom: 26px; font-family: 'DM Mono', monospace;
+  letter-spacing: 0.04em;
+}
+.hero-name {
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 900; line-height: 1.1;
+  color: var(--text); margin-bottom: 6px;
+}
+.hero-name .highlight {
+  color: var(--blue);
+  position: relative;
+}
+.hero-name .highlight::after {
+  content: '';
+  position: absolute; bottom: 2px; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue3), var(--teal));
+  border-radius: 4px;
+  opacity: 0.5;
+}
+.hero-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 1rem; color: var(--accent);
+  font-weight: 500; margin-bottom: 22px;
+  letter-spacing: 0.02em;
+}
+.hero-title::before { content: '> '; color: var(--teal); }
+.hero-desc {
+  font-size: 1.05rem; line-height: 1.75;
+  color: var(--muted); max-width: 580px; margin-bottom: 36px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--blue);
+  color: white; padding: 14px 32px; border-radius: 12px;
+  font-weight: 800; text-decoration: none; font-size: 0.95rem;
+  transition: all 0.25s;
+  box-shadow: 0 4px 18px rgba(21,101,192,0.35);
+}
+.btn-primary:hover {
+  background: #0D47A1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(21,101,192,0.45);
+}
+.btn-secondary {
+  background: white; border: 2px solid var(--border);
+  color: var(--blue); padding: 13px 30px; border-radius: 12px;
+  font-weight: 800; text-decoration: none; font-size: 0.95rem;
+  transition: all 0.25s;
+}
+.btn-secondary:hover { border-color: var(--blue); background: #EBF4FF; }
+
+/* STATS */
+.stats { display: flex; gap: 14px; margin-top: 48px; flex-wrap: wrap; }
+.stat-box {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 18px 28px; text-align: center;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.stat-num {
+  font-size: 2.2rem; font-weight: 900;
+  color: var(--blue);
+}
+.stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 3px; font-weight: 700; }
+
+/* ── SECTIONS ── */
+section { padding: 80px 6%; }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.18em;
+  color: var(--accent); font-weight: 500;
+  margin-bottom: 10px; text-transform: uppercase;
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900; margin-bottom: 44px; color: var(--text);
+}
+.section-title span {
+  color: var(--blue);
+  border-bottom: 3px solid var(--blue3);
+  padding-bottom: 1px;
+}
+
+/* ── SKILLS ── */
+#skills { background: var(--bg2); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.skill-item {
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 20px 22px;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.skill-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px var(--shadow); }
+.skill-header { display: flex; justify-content: space-between; margin-bottom: 12px; align-items: center; }
+.skill-name { font-weight: 800; font-size: 0.92rem; color: var(--text); }
+.skill-percent {
+  color: var(--blue); font-weight: 700;
+  font-family: 'DM Mono', monospace; font-size: 0.88rem;
+}
+.skill-bar { height: 8px; background: var(--bg3); border-radius: 100px; overflow: hidden; }
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--blue3));
+  border-radius: 100px;
+  width: 0;
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── PROJECTS ── */
+#projects { background: var(--bg); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+.project-card {
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 20px; padding: 28px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 12px var(--shadow);
+  position: relative; overflow: hidden;
+}
+.project-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(21,101,192,0.15); border-color: var(--blue3); }
+.project-card:hover::after { transform: scaleX(1); }
+.project-result {
+  display: inline-block;
+  background: #E3F2FD; border: 1.5px solid #90CAF9;
+  color: var(--blue2); padding: 4px 14px; border-radius: 100px;
+  font-size: 0.76rem; font-weight: 800; margin-bottom: 14px;
+  font-family: 'DM Mono', monospace;
+}
+.project-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+.project-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.65; margin-bottom: 16px; }
+.project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.tag {
+  background: #EBF4FF; border: 1.5px solid var(--border);
+  color: var(--blue2); padding: 4px 12px; border-radius: 8px;
+  font-size: 0.76rem; font-weight: 800;
+}
+.project-link { color: var(--accent); font-weight: 800; text-decoration: none; font-size: 0.88rem; }
+.project-link:hover { text-decoration: underline; }
+
+/* ── TIMELINE ── */
+#experience { background: var(--bg2); }
+.timeline { position: relative; padding-left: 32px; max-width: 800px; }
+.timeline::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2.5px;
+  background: linear-gradient(to bottom, var(--blue), var(--teal));
+  border-radius: 2px;
+}
+.timeline-item { position: relative; margin-bottom: 36px; }
+.timeline-dot {
+  position: absolute; left: -41px; top: 8px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--blue);
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px var(--blue3);
+}
+.timeline-content {
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 24px 26px;
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.tl-header {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;
+}
+.tl-header h3 { font-size: 1.05rem; font-weight: 900; color: var(--blue); }
+.tl-time {
+  background: #E8F5E9; border: 1.5px solid #A5D6A7;
+  color: #2E7D32; padding: 4px 14px; border-radius: 100px;
+  font-size: 0.76rem; font-weight: 800;
+  font-family: 'DM Mono', monospace; white-space: nowrap;
+}
+.tl-company { color: var(--muted); font-size: 0.88rem; margin-bottom: 14px; font-weight: 700; }
+.tl-list { list-style: none; }
+.tl-list li {
+  position: relative; padding-left: 18px;
+  color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 6px;
+}
+.tl-list li::before { content: '▸'; position: absolute; left: 0; color: var(--blue3); font-size: 0.8rem; }
+
+/* ── EDUCATION & CERTS ── */
+#education { background: var(--bg); }
+.edu-cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+@media (max-width: 700px) { .edu-cert-grid { grid-template-columns: 1fr; } }
+.edu-card {
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 22px;
+  display: flex; gap: 16px; align-items: flex-start;
+  box-shadow: 0 2px 10px var(--shadow); margin-bottom: 16px;
+  transition: all 0.2s;
+}
+.edu-card:hover { border-color: var(--blue3); transform: translateY(-2px); }
+.edu-icon { font-size: 2rem; }
+.edu-card h3 { font-weight: 800; margin-bottom: 4px; color: var(--text); font-size: 0.98rem; }
+.edu-card p { color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+.edu-meta { color: var(--blue2) !important; font-weight: 700 !important; margin-top: 4px; }
+.cert-item {
+  background: white; border: 1.5px solid var(--border);
+  border-left: 4px solid var(--blue);
+  border-radius: 12px; padding: 14px 18px;
+  font-size: 0.88rem; font-weight: 700; color: var(--text);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.2s;
+}
+.cert-item:hover { border-left-color: var(--teal); background: var(--bg2); }
+.cert-dot { color: var(--blue3); font-size: 0.7rem; }
+
+/* ── CONTACT ── */
+#contact { background: var(--bg2); text-align: center; }
+.contact-intro { color: var(--muted); max-width: 500px; margin: 0 auto 36px; font-size: 1rem; line-height: 1.7; }
+.contact-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.contact-card {
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 22px 30px; text-decoration: none;
+  color: var(--text); transition: all 0.3s;
+  min-width: 190px; box-shadow: 0 2px 12px var(--shadow);
+}
+.contact-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(21,101,192,0.2);
+}
+.contact-card .icon { font-size: 1.7rem; margin-bottom: 8px; }
+.contact-card .c-label { font-size: 0.74rem; color: var(--muted); margin-bottom: 4px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.contact-card .c-val { font-weight: 800; font-size: 0.88rem; color: var(--blue); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 28px;
+  border-top: 1.5px solid var(--border);
+  color: var(--muted); font-size: 0.84rem; background: white;
+}
+
+/* ── ANIMATION ── */
+.fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">📊 <span>VŨ THỊ KIM THOA</span></div>
+  <ul class="nav-links">
+    <li><a href="#skills">Kỹ năng</a></li>
+    <li><a href="#projects">Dự án</a></li>
+    <li><a href="#experience">Kinh nghiệm</a></li> 
+    <li><a href="#education">Học vấn</a></li>
+    <li><a href="#contact">Liên hệ</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-blob blob1"></div>
+  <div class="hero-blob blob2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📊 Data Analyst and Market Research Intern </div>
+    <h1 class="hero-name">
+      Xin chào, tôi là<br>
+      <span class="highlight">Vũ Thị Kim Thoa</span>
+    </h1>
+    <p class="hero-title">Data Analyst and Market Research Intern · Data Governance · BI Strategy</p>
+    <p class="hero-desc">Với xuất phát điểm từ chuyên ngành Kinh tế và Thẩm định giá, tôi khát khao biến những con số phức tạp thành những câu chuyện hữu ích, biến những dữ liệu thô thành tài sản chiến lược.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">Xem dự án →</a>
+      <a href="#contact" class="btn-secondary">Liên hệ tôi</a>
+    </div>
+    <div class="stats">
+      <div class="stat-box">
+        <div class="stat-num">3+</div>
+        <div class="stat-label">Dự án</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Chứng chỉ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="fade-in">
+    <p class="section-label">Công cụ & Chuyên môn</p>
+    <h2 class="section-title">Kỹ năng <span>chuyên môn</span></h2>
+    <div class="skills-grid">
+        <div class="skill-item">
+            <div class="skill-header">
+                <span class="skill-name">Cơ sở dữ liệu (MySQL, Google BigQuery, SQL Server)</span>
+                <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" style="--w:80%"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-header">
+                <span class="skill-name">Lập trình (Python: Pandas, NumPy, Matplotlib)</span>
+                <span class="skill-percent">75%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" style="--w:75%"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-header">
+                <span class="skill-name">Trực quan hóa (Power BI)</span>
+                <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" style="--w:90%"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-header">
+                <span class="skill-name">Công cụ văn phòng (Excel, Word, PowerPoint)</span>
+                <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" style="--w:90%"></div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <div class="skill-header">
+                <span class="skill-name">Nghiệp vụ (Data Analysis, Investment & Valuation)</span>
+                <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-fill" style="--w:80%"></div>
+            </div>
+        </div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="fade-in">
+    <p class="section-label">Portfolio</p>
+    <h2 class="section-title">Dự án <span>nổi bật</span></h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-result">Đề xuất chiến lược giảm 16% tỷ lệ drop-out & tối ưu hóa IAP</div>
+            <h3 class="project-title">Phân tích Hành vi Người dùng & Tối ưu Doanh thu (Frenzy Hospital)</h3>
+            <p class="project-desc">Thực hiện làm sạch dữ liệu và phân tích khám phá (EDA) trên tập dữ liệu 73,000+ người dùng. Xây dựng dashboard tương tác để theo dõi User Funnel và In-App Purchases. Phát hiện lỗ hổng kịch bản (FTUE) gây thất thoát 16% lượng user mới (12K user) và tỷ lệ Churn Rate bất thường (>76%) tại các level 135, 401. Phân tích chéo nhân khẩu học, chỉ ra nghịch lý thị trường (Mỹ tạo doanh thu cao nhất, Ấn Độ đông nhất nhưng không nạp tiền) để đề xuất điều chỉnh độ khó game và chiến lược quảng cáo khu vực.</p>
+            <div class="project-tags"><span class="tag">SQL</span><span class="tag">Power BI</span></div>
+            <a href="https://app.powerbi.com/view?r=eyJrIjoiZjUwZDJmNzctZDZhOC00MDJhLWI1ZDUtZGZiNmVjMWI2YzhkIiwidCI6IjVlOGIzMjY5LTc2Y2EtNDU3Yy04NDdmLTQ0NGUzZGI5ODZhNyIsImMiOjl9" class="project-link">Xem chi tiết →</a>
+        </div>
+        <div class="project-card">
+            <div class="project-result">Nhận diện nguyên nhân thất thoát £3.87M & rủi ro vận hành</div>
+            <h3 class="project-title">Hệ thống Báo cáo Quản trị Hiệu suất Dự án & Tài chính</h3>
+            <p class="project-desc">Thiết kế mô hình dữ liệu (Data Modeling) và phát triển hệ thống báo cáo tự động hóa theo dõi hiệu suất của 200+ nhân sự. Xây dựng các DAX measures để đo lường KPIs trọng yếu (Utilization Rate đạt 41.17%). Phân tích bóc tách cấu trúc 429K giờ làm việc, phát hiện điểm nghẽn quy trình khiến tổ chức thất thoát £3.87M (~31% tổng ngân sách dự án) do tỷ lệ Non-billable hours cao. Trực quan hóa rủi ro vận hành liên quan đến tỷ lệ duyệt chấm công đúng hạn (chỉ 32.42%).</p>
+            <div class="project-tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Python</span></div>
+            <a href="#" class="project-link">Xem chi tiết →</a>
+        </div>
+        <div class="project-card">
+            <div class="project-result">Dự án được phê duyệt đạt tại The Young Researcher UEH 2024.</div>
+            <h3 class="project-title">Phân tích Rủi ro Tín dụng & Hiệu quả Tài chính Ngân hàng (2017-2022).</h3>
+            <p class="project-desc">Hỗ trợ chuyên gia kinh tế xử lý tài liệu và chuẩn hóa tập dữ liệu tài chính của các Ngân hàng Thương mại Cổ phần tại Việt Nam. Thực hiện bóc tách và phân tích dữ liệu nhằm đánh giá chuyên sâu về rủi ro tín dụng và tác động của nó đến hiệu suất hoạt động tài chính của ngân hàng trong giai đoạn 2017-2022.</p>
+            <div class="project-tags"><span class="tag">Data Processing</span><span class="tag">Financial Analysis</span><span class="tag">Microsoft Office</span></div>
+            <a href="#" class="project-link">Xem chi tiết →</a>
+        </div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="fade-in">
+    <p class="section-label">Career Journey</p>
+    <h2 class="section-title">Kinh nghiệm <span>làm việc</span></h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="tl-header">
+                    <div>
+                        <h3>Tutor</h3>
+                        <p class="tl-company">🏢 Gia sư tự do</p>
+                    </div>
+                    <span class="tl-time">2022 - Nay</span>
+                </div>
+                <ul class="tl-list"><li>Thực hiện công việc giảng dạy và gia sư.</li></ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="tl-header">
+                    <div>
+                        <h3>Research Assistant</h3>
+                        <p class="tl-company">🏢 University of Economics Ho Chi Minh City</p>
+                    </div>
+                    <span class="tl-time">2024 - 2025</span>
+                </div>
+                <ul class="tl-list"><li>Hỗ trợ chuyên gia kinh tế trong việc xử lý tài liệu và dữ liệu cho dự án.</li></ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <div class="tl-header">
+                    <div>
+                        <h3>Coordinator Collaborator</h3>
+                        <p class="tl-company">🏢 Military Commercial Joint Stock Bank (Chi nhánh Nguyễn Đình Chiểu)</p>
+                    </div>
+                    <span class="tl-time">2023 - 2024</span>
+                </div>
+                <ul class="tl-list"><li>Quản lý Dữ liệu & Số hóa: Trực tiếp thực hiện quy trình số hóa (digitization) và cấu trúc hóa hồ sơ khách hàng, đảm bảo tính chính xác, bảo mật và toàn vẹn của dữ liệu để phục vụ hệ thống lưu trữ nội bộ.</li><li>Nghiên cứu & Tối ưu quy trình: Ghi nhận, phân loại nhu cầu của khách hàng và trực tiếp xử lý các dịch vụ trong giờ cao điểm, qua đó thu thập insight thực tế giúp cải thiện luồng vận hành tại chi nhánh.</li></ul>
+            </div>
+        </div></div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="fade-in">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Học vấn & <span>Chứng chỉ</span></h2>
+    <div class="edu-cert-grid">
+      <div>
+        <div class="edu-card">
+            <div class="edu-icon">🎓</div>
+            <div>
+                <h3>Song chuyên ngành Kinh tế Đầu tư | Thẩm định giá và Quản lý Tài sản</h3>
+                <p>Đại học Kinh tế TP.HCM (UEH)</p>
+                <p class="edu-meta">2022 - Nay &nbsp;·&nbsp; GPA 3.53/4.0 | 3.67/4.0</p>
+            </div>
+        </div></div>
+      <div><div class="cert-item"><span class="cert-dot">✦</span> HackerRank SQL Advanced (2026)</div><div class="cert-item"><span class="cert-dot">✦</span> TOEIC (2025)</div><div class="cert-item"><span class="cert-dot">✦</span> IC3 Digital Literacy Certification (2023)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="fade-in">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-title" style="margin-bottom:16px">Liên hệ <span>với tôi</span></h2>
+    <p class="contact-intro">Tôi luôn sẵn sàng trao đổi về cơ hội mới, dự án thú vị hoặc các thách thức về dữ liệu!</p>
+    <div class="contact-cards">
+      <a href="mailto:thoavu.work@gmail.com" class="contact-card">
+        <div class="icon">📧</div>
+        <div class="c-label">Email</div>
+        <div class="c-val">thoavu.work@gmail.com</div>
+      </a>
+      <a href="tel:0934116280" class="contact-card">
+        <div class="icon">📱</div>
+        <div class="c-label">Điện thoại</div>
+        <div class="c-val">0934 116 280</div>
+      </a>
+      <a href="https://linkedin.com/in/thoavuthikim" target="_blank" class="contact-card">
+        <div class="icon">💼</div>
+        <div class="c-label">LinkedIn</div>
+        <div class="c-val">linkedin.com/in/thoavuthikim</div>
+      </a>
+      <a href="https://github.com/thoavuthikim" target="_blank" class="contact-card">
+        <div class="icon">🐙</div>
+        <div class="c-label">GitHub</div>
+        <div class="c-val">github.com/thoavuthikim</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Thiết kế & phát triển bởi <strong style="color:var(--blue)">Vũ Thị Kim Thoa</strong> &nbsp;·&nbsp; Data Analyst and Market Research Intern</p>
+</footer>
+
+<script>
+  // Skill bar animation on scroll
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.skill-fill').forEach(bar => {
+          bar.style.width = bar.style.getPropertyValue('--w');
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.skills-grid').forEach(g => skillObserver.observe(g));
+
+  // Fade-in on scroll
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+</script>
+</body>
+</html>
